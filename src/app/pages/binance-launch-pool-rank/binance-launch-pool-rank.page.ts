@@ -17,11 +17,13 @@ export class BinanceLaunchPoolRankPage implements OnInit {
     this.asset1 = {
       USDValue : 20,
       name : "BNB",
+      imageUrl : "https://bin.bnbstatic.com/image/admin_mgs_image_upload/20201110/550eda20-1b9a-4bc7-9a65-e4a329e8bb57.png"
     }
 
     this.asset2 = {
       USDValue : 10,
       name : "CHZ",
+      imageUrl : "https://bin.bnbstatic.com/images/20191211/721a863b-5c9d-4061-a2f0-d288dcd3d1ad.png"
     }
 
     this.launchPoolTest = {

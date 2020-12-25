@@ -8,6 +8,7 @@ import { BinanceLaunchPoolRankPageRoutingModule } from './binance-launch-pool-ra
 
 import { BinanceLaunchPoolRankPage } from './binance-launch-pool-rank.page';
 import { LaunchPoolComponent } from './launch-pool/launch-pool.component';
+import { AssetComponent } from 'src/app/shared/asset/asset.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { LaunchPoolComponent } from './launch-pool/launch-pool.component';
     IonicModule,
     BinanceLaunchPoolRankPageRoutingModule
   ],
-  declarations: [BinanceLaunchPoolRankPage, LaunchPoolComponent]
+  declarations: [BinanceLaunchPoolRankPage, LaunchPoolComponent, AssetComponent]
 })
 export class BinanceLaunchPoolRankPageModule {}
