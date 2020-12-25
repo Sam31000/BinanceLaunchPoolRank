@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-blpr-dev-170836-authRole",
+      "UnauthRoleArn": "arn:aws:iam::180516345724:role/amplify-blpr-dev-170836-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::180516345724:role/amplify-blpr-dev-170836-authRole",
+      "Region": "eu-west-2",
+      "DeploymentBucketName": "amplify-blpr-dev-170836-deployment",
+      "UnauthRoleName": "amplify-blpr-dev-170836-unauthRole",
+      "StackName": "amplify-blpr-dev-170836",
+      "StackId": "arn:aws:cloudformation:eu-west-2:180516345724:stack/amplify-blpr-dev-170836/747210f0-46cb-11eb-8a3f-024da1482c76",
+      "AmplifyAppId": "d35g55g14e3o5a"
+    }
+  }
+}
