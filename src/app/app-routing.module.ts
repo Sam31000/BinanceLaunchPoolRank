@@ -8,11 +8,11 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'rank-page',
     pathMatch: 'full'
   },
   {
-    path: 'binance-launch-pool-rank',
+    path: 'rank-page',
     loadChildren: () => import('./pages/binance-launch-pool-rank/binance-launch-pool-rank.module').then( m => m.BinanceLaunchPoolRankPageModule)
   },
 ];

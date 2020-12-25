@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { BinanceLaunchPoolRankPageRoutingModule } from './binance-launch-pool-rank-routing.module';
 
 import { BinanceLaunchPoolRankPage } from './binance-launch-pool-rank.page';
+import { LaunchPoolComponent } from './launch-pool/launch-pool.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { BinanceLaunchPoolRankPage } from './binance-launch-pool-rank.page';
     IonicModule,
     BinanceLaunchPoolRankPageRoutingModule
   ],
-  declarations: [BinanceLaunchPoolRankPage]
+  declarations: [BinanceLaunchPoolRankPage, LaunchPoolComponent]
 })
 export class BinanceLaunchPoolRankPageModule {}
