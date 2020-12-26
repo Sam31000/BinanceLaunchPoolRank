@@ -1,0 +1,32 @@
+# this is an auto generated file. This will be overwritten
+query GetAsset($name: String) {
+  getAsset(name: $name) {
+    name
+    USDValue
+    imageUrl
+  }
+}
+query ListAssets {
+  listAssets {
+    name
+    USDValue
+    imageUrl
+  }
+}
+query ListLaunchPools {
+  listLaunchPools {
+    url
+    stakedAsset {
+      name
+      USDValue
+      imageUrl
+    }
+    earnedAsset {
+      name
+      USDValue
+      imageUrl
+    }
+    ROI
+    USDInvested
+  }
+}

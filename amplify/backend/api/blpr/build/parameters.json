@@ -1,0 +1,8 @@
+{
+    "CreateAPIKey": 1,
+    "AppSyncApiName": "blpr",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": false,
+    "S3DeploymentBucket": "amplify-blpr-dev-170836-deployment",
+    "S3DeploymentRootKey": "amplify-appsync-files/a68b27d4aa38834ba4aa28b1f1448752ff5da1f2"
+}

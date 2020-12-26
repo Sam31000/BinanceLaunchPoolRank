@@ -1,0 +1,19 @@
+type Asset {
+  name: String
+  USDValue: String
+  imageUrl: String
+}
+
+type LaunchPool {
+  url: String
+  stakedAsset: Asset
+  earnedAsset: Asset
+  ROI: Float
+  USDInvested: Float
+}
+
+type Query {
+  getAsset(name: String): Asset
+  listAssets: [Asset]
+  listLaunchPools: [LaunchPool]
+}
