@@ -1,15 +1,50 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>binanceLaunchPoolRank</ion-title>
+    <ion-title>Binance LaunchPool Simulation</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="invest">
+    <ion-label>How much USD do you wanna invest ?</ion-label>
+    <ion-item>
+      <ion-input [(ngModel)]="investValue" (keyup)='updateInvestValue($event)'></ion-input>
+      <ion-icon class="dollar" src="../../assets/dollar.svg" slot="start"></ion-icon>
+      <ion-icon class="dollar" src="../../assets/dollar.svg" slot="end"></ion-icon>
+    </ion-item>
+  </div>
+
   <div>
+    <ion-grid>
+      <ion-row class="textCenter">
+        <ion-col size="2">
+          DAILY ROI
+        </ion-col>
+        <ion-col size="4">
+          TOTAL POOL STACKED
+        </ion-col>
+        <ion-col size="4">
+          DAILY POOL REWARD
+        </ion-col>
+        <ion-col size="2">
+          GO TO THE LAUNCHPOOL
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
     <ion-list>
       <ion-item *ngFor="let launchPool of LaunchPools; let i = index">
-        {{i}} <app-launch-pool [launchPool]="launchPool"></app-launch-pool>
+        <app-launch-pool class="textCenter" style="width : 100%" [launchPool]="launchPool"></app-launch-pool>
       </ion-item>
     </ion-list>
   </div>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Powered by Cryptomolow 
+      <a href="https://twitter.com/samolower" target="_blank"><ion-icon src="assets/twitter-logo.svg"></ion-icon></a>
+      <a href="https://www.instagram.com/cryptomolow/" target="_blank"><ion-icon src="assets/instagram-logo.svg"></ion-icon></a>
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>

@@ -14,8 +14,8 @@ exports.handler = async (event, context, callback) => {
     function listLaunchPools() {
 
         return [{
-            ROI: 231,
-            USDInvested: 100,
+            totalPoolStacked: 321313412.213,
+            totalPoolReward: 1424235251.213,
             earnedAsset: {
                 USDValue: 0.000020,
                 name: "BNB",
@@ -29,8 +29,8 @@ exports.handler = async (event, context, callback) => {
             url: "http://google.fr",
         },
         {
-            ROI: 321,
-            USDInvested: 100,
+            totalPoolStacked: 321412.213,
+            totalPoolReward: 14251.213,
             earnedAsset: {
                 USDValue: 0.123,
                 name: "BTC",
@@ -44,8 +44,8 @@ exports.handler = async (event, context, callback) => {
             url: "http://google.fr",
         },
         {
-            ROI: 12,
-            USDInvested: 31,
+            totalPoolStacked: 3243412.213,
+            totalPoolReward: 21515725.321,
             earnedAsset: {
                 USDValue: 0.123,
                 name: "BAT",

@@ -26,7 +26,7 @@ query ListLaunchPools {
       USDValue
       imageUrl
     }
-    ROI
-    USDInvested
+    totalPoolReward
+    totalPoolStacked
   }
 }

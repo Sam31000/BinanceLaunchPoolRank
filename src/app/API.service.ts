@@ -34,8 +34,8 @@ export type ListLaunchPoolsQuery = {
     USDValue: string | null;
     imageUrl: string | null;
   } | null;
-  ROI: number | null;
-  USDInvested: number | null;
+  totalPoolReward: number | null;
+  totalPoolStacked: number | null;
 };
 
 @Injectable({
@@ -89,8 +89,8 @@ export class APIService {
             USDValue
             imageUrl
           }
-          ROI
-          USDInvested
+          totalPoolReward
+          totalPoolStacked
         }
       }`;
     const response = (await API.graphql(graphqlOperation(statement))) as any;

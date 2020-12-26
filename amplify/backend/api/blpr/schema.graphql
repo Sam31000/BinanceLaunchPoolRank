@@ -8,8 +8,8 @@ type LaunchPool {
 	url: String
 	stakedAsset: Asset
 	earnedAsset: Asset
-	ROI: Float
-	USDInvested: Float
+	totalPoolReward: Float
+	totalPoolStacked: Float
 }
 
 type Query {

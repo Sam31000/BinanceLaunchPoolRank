@@ -8,17 +8,33 @@ import { APIService } from 'src/app/API.service';
 })
 export class BinanceLaunchPoolRankPage implements OnInit {
 
-  launchPoolTest: LaunchPool
-  asset1: Asset
-  asset2: Asset
+  investValue: number = 100.00;
   LaunchPools: any;
+  apiService : APIService;
 
   constructor(apiService : APIService) {
-
-    //Data testing
-    apiService.ListLaunchPools().then((data) => { this.LaunchPools = data});
-    
+    this.apiService = apiService;
   }
+
   ngOnInit() {
+    this.refreshROI();
+  }
+
+  async refreshROI(){
+    await this.refreshLPData();
+    this.LaunchPools.forEach(LP => {
+      LP.USDInvested = this.investValue;
+      var earnPerStackedAsset = LP.totalPoolReward / LP.totalPoolStacked;
+      var stackedAssetAmount = this.investValue / LP.stakedAsset.USDValue;
+      LP.ROI = earnPerStackedAsset * stackedAssetAmount;
+    });
+  }
+
+  async refreshLPData(){
+    this.LaunchPools = await this.apiService.ListLaunchPools();
+  }
+
+  updateInvestValue(event){
+    this.refreshROI();
   }
 }
