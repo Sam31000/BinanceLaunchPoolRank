@@ -65,11 +65,13 @@
           ]
         },
         "Runtime": "nodejs12.x",
-        "Layers": [],
+        "Layers": [
+          "arn:aws:lambda:eu-west-2:180516345724:layer:LaunchPoolLayer-dev:2"
+        ],
         "Timeout": "25",
         "Code": {
           "S3Bucket": "amplify-blpr-dev-170836-deployment",
-          "S3Key": "amplify-builds/launchPool-7a534d3448767a635975-build.zip"
+          "S3Key": "amplify-builds/launchPool-70464b464d6669737057-build.zip"
         }
       }
     },

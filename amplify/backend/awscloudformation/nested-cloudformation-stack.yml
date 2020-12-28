@@ -100,6 +100,18 @@
           "env": "dev"
         }
       }
+    },
+    "functionLaunchPoolLayer": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/amplify-blpr-dev-170836-deployment/amplify-cfn-templates/function/LaunchPoolLayer-awscloudformation-template.json",
+        "Parameters": {
+          "layerVersion": 2,
+          "deploymentBucketName": "amplify-blpr-dev-170836-deployment",
+          "s3Key": "amplify-builds/LaunchPoolLayer-build.zip",
+          "env": "dev"
+        }
+      }
     }
   },
   "Outputs": {
