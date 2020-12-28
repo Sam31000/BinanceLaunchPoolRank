@@ -1,12 +1,12 @@
 <ion-grid>
   <ion-row id="launchPool">
     <ion-col size="2">
-      {{launchPool.ROI}} USD
+      {{launchPool.ROI | displayLoadedNumberPipe}} USD
     </ion-col>
     <ion-col size="4">
       <ion-grid>
         <ion-row>
-          <ion-col size="auto">{{launchPool.totalPoolStacked}}</ion-col>
+          <ion-col size="auto">{{launchPool.totalPoolStacked | displayLoadedNumberPipe}}</ion-col>
           <ion-col><app-asset size="auto" [asset]="launchPool.stakedAsset"></app-asset></ion-col>
         </ion-row>
       </ion-grid>
@@ -14,7 +14,7 @@
     <ion-col size="4">
       <ion-grid>
         <ion-row>
-          <ion-col>{{launchPool.totalPoolReward}} </ion-col>
+          <ion-col> {{launchPool.totalPoolReward | displayLoadedNumberPipe}} </ion-col>
           <ion-col><app-asset [asset]="launchPool.earnedAsset"></app-asset></ion-col>
         </ion-row>
       </ion-grid>

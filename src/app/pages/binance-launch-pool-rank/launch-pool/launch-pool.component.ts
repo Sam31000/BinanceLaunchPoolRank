@@ -16,6 +16,7 @@ export class LaunchPoolComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
 }

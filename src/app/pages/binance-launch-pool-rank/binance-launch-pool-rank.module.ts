@@ -9,13 +9,16 @@ import { BinanceLaunchPoolRankPageRoutingModule } from './binance-launch-pool-ra
 import { BinanceLaunchPoolRankPage } from './binance-launch-pool-rank.page';
 import { LaunchPoolComponent } from './launch-pool/launch-pool.component';
 import { AssetComponent } from 'src/app/shared/asset/asset.component';
+import { PipesModule } from 'src/app/pipes/pipes.module';
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    BinanceLaunchPoolRankPageRoutingModule
+    BinanceLaunchPoolRankPageRoutingModule,
+    PipesModule
   ],
   declarations: [BinanceLaunchPoolRankPage, LaunchPoolComponent, AssetComponent]
 })
