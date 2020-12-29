@@ -22,7 +22,7 @@ export type ListAssetsQuery = {
 export type ListLaunchPoolsQuery = {
   __typename: "LaunchPool";
   url: string | null;
-  stakedAsset: {
+  stackedAsset: {
     __typename: "Asset";
     name: string | null;
     USDValue: string | null;
@@ -77,7 +77,7 @@ export class APIService {
         listLaunchPools {
           __typename
           url
-          stakedAsset {
+          stackedAsset {
             __typename
             name
             USDValue

@@ -22,12 +22,23 @@ export class BinanceLaunchPoolRankPage implements OnInit {
 
   async refreshROI(){
     await this.refreshLPData();
-    this.LaunchPools.forEach(LP => {
-      LP.USDInvested = this.investValue;
-      var earnPerStackedAsset = LP.totalPoolReward / LP.totalPoolStacked;
-      var stackedAssetAmount = this.investValue / LP.stakedAsset.USDValue;
-      LP.ROI = earnPerStackedAsset * stackedAssetAmount;
-    });
+    // var response = await fetch("https://www.chiliz.net/api/quote/v1/rates", {
+    //   method: 'POST',
+    //   body: "",
+    //   headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', 'origin' : 'https://www.chiliz.net', 'referer' : 'https://chiliz.net'} });
+    // console.log (response);
+    // this.LaunchPools.forEach(LP => {
+    //   if (LP.earnedAsset != null && 
+    //       LP.stackedAsset != null && 
+    //       !isNaN(LP.earnedAsset.USDValue) && 
+    //       !isNaN(LP.stackedAsset.USDValue)){
+    //     var tokenEarnPerStackedAsset = LP.totalPoolReward / LP.totalPoolStacked;
+    //     LP.ROI = tokenEarnPerStackedAsset * LP.earnedAsset.USDValue * this.investValue/LP.stackedAsset.USDValue
+    //   }
+      
+    //   //var stackedAssetAmount = this.investValue / LP.stackedAsset.USDValue;
+    //   //P.ROI = earnPerStackedAsset * stackedAssetAmount;
+    // });
   }
 
   async refreshLPData(){

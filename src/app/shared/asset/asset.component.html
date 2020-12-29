@@ -1,7 +1,7 @@
 <ion-grid>
   <ion-row>
-    <ion-col size="auto"><img style="width : 20px"src="{{this.asset.imageUrl}}"/></ion-col>
-    <ion-col size="auto">{{ this.asset.name | displayLoadedNumberPipe }}</ion-col>
+    <!-- <ion-col size="auto"><img style="width : 20px"src="{{this.asset.imageUrl}}"/></ion-col> -->
+    <ion-col size="auto">{{ this.asset.name }}</ion-col>
     <ion-col size="auto">( {{this.asset.USDValue | displayLoadedNumberPipe }} $ )</ion-col>
   </ion-row>
 </ion-grid>

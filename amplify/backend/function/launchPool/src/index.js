@@ -6,6 +6,7 @@ exports.handler = async (event, context, callback) => {
     const BASE_URL = "https://launchpad.binance.com"
     const LAUNCH_POOL_URL = BASE_URL + "/en/tab3";
     const API_GETPRICE_URL = "https://api1.binance.com/api/v3/ticker/price?symbol=";
+    const URL_LAUNCHPOOL_DETAIL = "https://launchpad.binance.com/gateway-api/v1/public/launchpool/project/detail?projectId=";
 
     switch (event.info.fieldName) {
         case "listLaunchPools":
@@ -34,9 +35,11 @@ exports.handler = async (event, context, callback) => {
             return launchPoolList;
         });
 
+        //Get assets USDT values using Binance API
         launchPoolList = await getAssetsUSDTValue(launchPoolList).then((res, err) => { return res });
 
-        console.log("LaunchPool result ")
+        //Get pool rewards amount
+        launchPoolList = await getPoolReward(launchPoolList).then((res, err) => { return res });
 
         return launchPoolList;
     }
@@ -73,7 +76,7 @@ exports.handler = async (event, context, callback) => {
 
             LPList.forEach((LP) => {
                 var pair = LP.url.split('/').pop().split("_");
-                LP.stakedAsset = { name: pair.pop() };
+                LP.stackedAsset = { name: pair.pop() };
                 LP.earnedAsset = { name: pair.shift() };
             });
             success(LPList);
@@ -84,10 +87,10 @@ exports.handler = async (event, context, callback) => {
         var assetsUSDTValues = [];
 
         for (var i = 0, len = LPList.length; i < len; i++) {
-            if (assetsUSDTValues[LPList[i].stakedAsset.name] == null)
-                assetsUSDTValues[LPList[i].stakedAsset.name] = await getAssetValue(LPList[i].stakedAsset.name).then((res, err) => { return res });
+            if (assetsUSDTValues[LPList[i].stackedAsset.name] == null)
+                assetsUSDTValues[LPList[i].stackedAsset.name] = await getAssetValue(LPList[i].stackedAsset.name).then((res, err) => { return res });
 
-            LPList[i].stakedAsset.USDValue = assetsUSDTValues[LPList[i].stakedAsset.name];
+            LPList[i].stackedAsset.USDValue = assetsUSDTValues[LPList[i].stackedAsset.name];
 
             if (assetsUSDTValues[LPList[i].earnedAsset.name] == null)
                 assetsUSDTValues[LPList[i].earnedAsset.name] = await getAssetValue(LPList[i].earnedAsset.name).then((res, err) => { return res });
@@ -100,7 +103,6 @@ exports.handler = async (event, context, callback) => {
 
     function getAssetValue(assetSymbol) {
         return new Promise((success, failure) => {
-
             request({
                 method: 'GET',
                 url: API_GETPRICE_URL + assetSymbol + "USDT"
@@ -114,4 +116,41 @@ exports.handler = async (event, context, callback) => {
         });
     }
 
+    async function getPoolReward(LPList) {
+        var assetsUSDTValues = [];
+        for (var i = 0, len = LPList.length; i < len; i++) {
+
+            let currentTotalPool = { totalPoolReward: 0, totalPoolStacked: 0 };
+
+            currentTotalPool = await getTotalPool(LPList[i]).then((res, err) => { return res; });
+
+            LPList[i].totalPoolReward = currentTotalPool.totalPoolReward;
+            LPList[i].totalPoolStacked = currentTotalPool.totalPoolStacked;
+
+        }
+        return LPList;
+    }
+
+    function getTotalPool(launchPool) {
+
+        return new Promise((success, failure) => {
+            let result = {};
+            request({
+                method: 'GET',
+                url: URL_LAUNCHPOOL_DETAIL + launchPool.earnedAsset.name + '_' + launchPool.stackedAsset.name
+            }, (err, res, body) => {
+
+                if (err) {
+                    console.err("Error while retriving LaunchPoolList : ", err);
+                    failure({ err: "Error detected" });
+                }
+
+                result.totalPoolReward = JSON.parse(body).data.todayRebateCoins;
+                result.totalPoolStacked = JSON.parse(body).data.totalInvestAmount;
+
+                success(result);
+
+            });
+        });
+    }
 };

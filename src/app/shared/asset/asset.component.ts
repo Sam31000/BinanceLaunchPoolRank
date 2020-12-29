@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { LaunchPoolService } from 'src/app/serivces/launch-pool/launch-pool.service';
 
 @Component({
   selector: 'app-asset',
@@ -10,9 +11,15 @@ export class AssetComponent implements OnInit {
   @Input()
   asset : Asset
 
-  constructor() { 
+  launchPoolService : LaunchPoolService;
+
+  constructor(launchPoolService : LaunchPoolService) {
+    this.launchPoolService = launchPoolService;
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.launchPoolService.getObservableAssetUSDValue(this.asset.name)
+    .subscribe({ next: value => {this.asset.USDValue = value; console.log("OBSERVER : ", value);} });
+  }
 
 }

@@ -6,7 +6,7 @@ type Asset {
 
 type LaunchPool {
   url: String
-  stakedAsset: Asset
+  stackedAsset: Asset
   earnedAsset: Asset
   totalPoolReward: Float
   totalPoolStacked: Float

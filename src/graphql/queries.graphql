@@ -16,7 +16,7 @@ query ListAssets {
 query ListLaunchPools {
   listLaunchPools {
     url
-    stakedAsset {
+    stackedAsset {
       name
       USDValue
       imageUrl
