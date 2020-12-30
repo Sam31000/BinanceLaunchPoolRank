@@ -19,7 +19,7 @@ export class AssetComponent implements OnInit {
 
   ngOnInit() {
     this.launchPoolService.getObservableAssetUSDValue(this.asset.name)
-    .subscribe({ next: value => {this.asset.USDValue = value; console.log("OBSERVER : ", value);} });
+    .subscribe({ next: value => {this.asset.USDValue = value;} });
   }
 
 }

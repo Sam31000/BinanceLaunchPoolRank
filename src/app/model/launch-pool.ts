@@ -1,6 +1,6 @@
 interface LaunchPool{
     url : string,
-    stakedAsset : Asset,
+    stackedAsset : Asset,
     earnedAsset : Asset,
     totalPoolReward : number,
     totalPoolStacked : number,

@@ -33,7 +33,7 @@
     </ion-grid>
 
     <ion-list>
-      <ion-item *ngFor="let launchPool of LaunchPools; let i = index">
+      <ion-item *ngFor="let launchPool of launchPools; let i = index">
         <app-launch-pool class="textCenter" style="width : 100%" [launchPool]="launchPool"></app-launch-pool>
       </ion-item>
     </ion-list>

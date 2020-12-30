@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { APIService } from 'src/app/API.service';
+import { LaunchPoolService } from 'src/app/serivces/launch-pool/launch-pool.service';
 
 @Component({
   selector: 'app-binance-launch-pool-rank',
@@ -9,11 +10,13 @@ import { APIService } from 'src/app/API.service';
 export class BinanceLaunchPoolRankPage implements OnInit {
 
   investValue: number = 100.00;
-  LaunchPools: any;
+  launchPools: any;
   apiService : APIService;
+  launchPoolService : LaunchPoolService;
 
-  constructor(apiService : APIService) {
+  constructor(apiService : APIService, launchPoolService : LaunchPoolService) {
     this.apiService = apiService;
+    this.launchPoolService = launchPoolService;
   }
 
   ngOnInit() {
@@ -42,7 +45,8 @@ export class BinanceLaunchPoolRankPage implements OnInit {
   }
 
   async refreshLPData(){
-    this.LaunchPools = await this.apiService.ListLaunchPools();
+    this.launchPoolService.getLaunchPoolUrl().then((results) => { this.launchPools = results});
+//    this.LaunchPools = await this.apiService.ListLaunchPools();
   }
 
   updateInvestValue(event){
