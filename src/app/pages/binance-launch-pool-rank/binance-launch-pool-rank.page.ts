@@ -19,8 +19,11 @@ export class BinanceLaunchPoolRankPage implements OnInit {
     this.launchPoolService = launchPoolService;
   }
 
-  ngOnInit() {
-    this.refreshROI();
+  async ngOnInit() {
+
+
+    this.launchPools = await this.launchPoolService.getLaunchPoolUrl();
+
   }
 
   async refreshROI(){
@@ -45,7 +48,10 @@ export class BinanceLaunchPoolRankPage implements OnInit {
   }
 
   async refreshLPData(){
-    this.launchPoolService.getLaunchPoolUrl().then((results) => { this.launchPools = results});
+    this.launchPoolService.getLaunchPoolUrl().then((results) => { 
+      this.launchPools = results
+    });
+    //this.launchPoolService.getLaunchPoolHttpGet().subscribe((value) => { console.log("Subscription result : ", value)});
 //    this.LaunchPools = await this.apiService.ListLaunchPools();
   }
 
