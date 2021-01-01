@@ -15,8 +15,14 @@ export class LaunchPoolComponent implements OnInit {
   @Input()
   launchPool: LaunchPool
 
-  @Input()
-  investValue: number
+  @Input('investValue')
+  set investValue(val) {
+    this._investValue = val;
+    this.refreshROI();
+  }
+
+
+  private _investValue: number;
 
   constructor(private launchPoolService: LaunchPoolService) {
   }
@@ -25,13 +31,13 @@ export class LaunchPoolComponent implements OnInit {
     var pair = this.launchPool.url.split('/').pop().split("_");
 
     this.launchPool.stackedAsset = {
-      name: pair[0],
+      name: pair[1],
       USDValue: 0,
       imageUrl: ""
     }
 
     this.launchPool.earnedAsset = {
-      name: pair[1],
+      name: pair[0],
       USDValue: 0,
       imageUrl: ""
     }
@@ -40,10 +46,24 @@ export class LaunchPoolComponent implements OnInit {
       next: (launchPoolDetail: any) => {
         this.launchPool.totalPoolReward = launchPoolDetail.data.todayRebateCoins;
         this.launchPool.totalPoolStacked = launchPoolDetail.data.totalInvestAmount;
-        var tokenEarnPerStackedAsset = this.launchPool.totalPoolReward / this.launchPool.totalPoolStacked;
-        this.launchPool.ROI = tokenEarnPerStackedAsset * this.launchPool.earnedAsset.USDValue * this.investValue / this.launchPool.stackedAsset.USDValue;
+        this.refreshROI();
       }
     });
   }
+
+  refreshROI() {
+    if (this.launchPool &&
+      this.launchPool.totalPoolReward &&
+      this.launchPool.totalPoolStacked &&
+      this.launchPool.earnedAsset &&
+      this.launchPool.earnedAsset.USDValue &&
+      this.launchPool.stackedAsset &&
+      this.launchPool.earnedAsset.USDValue
+    ) {
+      var tokenEarnPerStackedAsset = this.launchPool.totalPoolReward / this.launchPool.totalPoolStacked;
+      this.launchPool.ROI = tokenEarnPerStackedAsset * this.launchPool.earnedAsset.USDValue * this._investValue / this.launchPool.stackedAsset.USDValue;
+    }
+  }
+
 
 }

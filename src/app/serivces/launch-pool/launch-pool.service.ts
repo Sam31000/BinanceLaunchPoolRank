@@ -11,8 +11,8 @@ const API_GETPRICE_URL: string = "https://api1.binance.com/api/v3/ticker/price?s
 const URL_LAUNCHPOOL_DETAIL: string = "https://launchpad.binance.com/gateway-api/v1/public/launchpool/project/detail?projectId=";
 
 const REFRESH_INTERVALS = {
-  ASSET: 10000,
-  LAUNCH_POOL_DETAIL: 10000,
+  ASSET: 60000,
+  LAUNCH_POOL_DETAIL: 60000,
   LAUNCH_POOL_LIST: 60000
 }
 
@@ -80,7 +80,7 @@ export class LaunchPoolService {
 
   //Perform a HTTP request to Binance to get informations detailed information about launchpool
   getLaunchPoolHttpGet(symbolEarned, symbolStacked) {
-    return this.http.get(URL_LAUNCHPOOL_DETAIL + symbolEarned + "_" + symbolStacked, this.httpOptions);
+    return this.http.get(URL_LAUNCHPOOL_DETAIL + symbolStacked + "_" + symbolEarned, this.httpOptions);
   }
 
   getLaunchPoolUrl(): Promise<any> {
