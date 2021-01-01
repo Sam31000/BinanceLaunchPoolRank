@@ -27,21 +27,8 @@ exports.handler = async (event, context, callback) => {
                 return err;
             return res;
         });
-
-        //Retreive launchPoolPair
-        launchPoolList = await getPairByLPList(launchPoolList).then((res, err) => {
-            if (err)
-                return err;
-            return launchPoolList;
-        });
-
-        //Get assets USDT values using Binance API
-        launchPoolList = await getAssetsUSDTValue(launchPoolList).then((res, err) => { return res });
-
-        //Get pool rewards amount
-        launchPoolList = await getPoolReward(launchPoolList).then((res, err) => { return res });
-
         return launchPoolList;
+        
     }
 
     //Initialization of launchPoolList with urls
