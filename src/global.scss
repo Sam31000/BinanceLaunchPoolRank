@@ -24,3 +24,15 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+ion-content{
+    --background: url('./assets/background.png');
+    --background-repeat: repeat;
+}
+
+ion-footer{
+    text-align: center;
+    color :white;
+    background-color: #8382826e;
+    border-top : 1px solid #41423e
+}

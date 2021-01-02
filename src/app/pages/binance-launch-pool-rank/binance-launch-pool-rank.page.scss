@@ -1,3 +1,7 @@
+ion-title img{
+    width : 20px;
+}
+
 .textCenter{
     text-align: center;
 }
@@ -7,6 +11,7 @@
         margin : auto;
         padding: 40px;
         text-align: center;
+        color : black;
 
 }
 
@@ -25,4 +30,23 @@
 }
 .invest .dollar{
     font-size: 3em;
+}
+
+.lp-grid-header {
+    text-align: center;
+    background-color: #1E1E1E;
+    font-size: 1.3em;
+    border-bottom: 1px solid white;
+    
+}
+.loading-container img{
+    width : 100px;
+}
+.loading-container{
+    text-align: center;
+    margin: auto;
+    padding: 50px;
+}
+a ion-icon{
+    margin-left : 5px;
 }

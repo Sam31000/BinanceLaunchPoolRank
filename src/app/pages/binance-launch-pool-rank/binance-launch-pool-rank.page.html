@@ -1,6 +1,11 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Binance LaunchPool Simulation</ion-title>
+    <ion-title class="ion-text-center">
+      <div>
+        <img class="dollar" src="../../assets/BNB.png">
+        Binance LaunchPool Simulator
+      </div>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -15,8 +20,8 @@
   </div>
 
   <div>
-    <ion-grid>
-      <ion-row class="textCenter">
+    <ion-grid class="lp-grid-header">
+      <ion-row>
         <ion-col size="2">
           DAILY USD REWARD
         </ion-col>
@@ -33,6 +38,17 @@
     </ion-grid>
 
     <ion-list>
+      <ion-item *ngIf="isLoading">
+        <div class="loading-container">
+          <img src="../../assets/loading.gif">
+          <img src="../../assets/loading.gif">
+          <img src="../../assets/loading.gif">
+          <img src="../../assets/loading.gif">
+          <img src="../../assets/loading.gif">
+          <br/>
+          <div>LOADING....</div>
+        </div>
+      </ion-item>
       <ion-item *ngFor="let launchPool of launchPools | sort:'desc':'ROI'">
         <app-launch-pool class="textCenter" style="width : 100%" [launchPool]="launchPool" [investValue]="investValue"></app-launch-pool>
       </ion-item>
