@@ -30,6 +30,7 @@
     "@ionic/angular": "^5.0.0",
     "aws-amplify": "^3.3.13",
     "cheerio": "^1.0.0-rc.5",
+    "lodash": "^4.17.20",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"

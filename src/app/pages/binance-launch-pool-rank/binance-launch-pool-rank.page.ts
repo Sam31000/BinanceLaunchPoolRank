@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LaunchPoolService } from 'src/app/serivces/launch-pool/launch-pool.service';
+import { LaunchPoolComponent } from './launch-pool/launch-pool.component';
 
 @Component({
   selector: 'app-binance-launch-pool-rank',

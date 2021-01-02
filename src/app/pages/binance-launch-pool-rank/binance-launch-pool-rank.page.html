@@ -33,7 +33,7 @@
     </ion-grid>
 
     <ion-list>
-      <ion-item *ngFor="let launchPool of launchPools">
+      <ion-item *ngFor="let launchPool of launchPools | sort:'desc':'ROI'">
         <app-launch-pool class="textCenter" style="width : 100%" [launchPool]="launchPool" [investValue]="investValue"></app-launch-pool>
       </ion-item>
     </ion-list>

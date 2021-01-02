@@ -35,7 +35,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-blpr-dev-170836-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apiblpr"
       },
-      "lastPushTimeStamp": "2021-01-02T12:31:30.457Z",
+      "lastPushTimeStamp": "2021-01-02T12:36:08.593Z",
       "lastPushDirHash": "8K+rlbc6AUVgC8BK1jD8kmqVj2Y="
     }
   },
@@ -51,7 +51,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-blpr-dev-170836-deployment/amplify-cfn-templates/function/asset-cloudformation-template.json",
         "logicalId": "functionasset"
       },
-      "lastPushTimeStamp": "2021-01-02T12:31:30.459Z",
+      "lastPushTimeStamp": "2021-01-02T12:36:08.595Z",
       "output": {
         "Region": "eu-west-2",
         "Arn": "arn:aws:lambda:eu-west-2:180516345724:function:asset-dev",
@@ -71,7 +71,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-blpr-dev-170836-deployment/amplify-cfn-templates/function/launchPool-cloudformation-template.json",
         "logicalId": "functionlaunchPool"
       },
-      "lastPushTimeStamp": "2021-01-02T12:31:30.464Z",
+      "lastPushTimeStamp": "2021-01-02T12:36:08.597Z",
       "output": {
         "Region": "eu-west-2",
         "Arn": "arn:aws:lambda:eu-west-2:180516345724:function:launchPool-dev",
@@ -113,7 +113,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-blpr-dev-170836-deployment/amplify-cfn-templates/function/LaunchPoolLayer-awscloudformation-template.json",
         "logicalId": "functionLaunchPoolLayer"
       },
-      "lastPushTimeStamp": "2021-01-02T12:31:30.460Z",
+      "lastPushTimeStamp": "2021-01-02T12:36:08.598Z",
       "output": {
         "Region": "eu-west-2",
         "Arn": "arn:aws:lambda:eu-west-2:180516345724:layer:LaunchPoolLayer-dev:2"
@@ -130,7 +130,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-blpr-dev-170836-deployment/amplify-cfn-templates/hosting/amplifyhosting-template.json",
         "logicalId": "hostingamplifyhosting"
       },
-      "lastPushTimeStamp": "2021-01-02T12:31:30.461Z",
+      "lastPushTimeStamp": "2021-01-02T12:36:08.599Z",
       "output": {},
       "lastPushDirHash": "/+VZ33seFFqAr6wbtptwbINUfSA="
     }

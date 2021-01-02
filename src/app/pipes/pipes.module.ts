@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { DisplayLoadedNumberPipe } from './display-price/display-price.pipe';
+import { SortPipe } from './sort/sort.pipe';
 
 @NgModule({
-declarations: [DisplayLoadedNumberPipe],
+declarations: [DisplayLoadedNumberPipe, SortPipe],
 imports: [],
-exports: [DisplayLoadedNumberPipe],
+exports: [DisplayLoadedNumberPipe, SortPipe],
 })
 
 export class PipesModule {}

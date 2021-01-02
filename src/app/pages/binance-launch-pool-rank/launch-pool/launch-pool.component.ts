@@ -54,14 +54,19 @@ export class LaunchPoolComponent implements OnInit {
   }
 
   refreshROI() {
+    //ROI is calculated only if there is enough data
     if (this.launchPool &&
-      this.launchPool.totalPoolReward &&
-      this.launchPool.totalPoolStacked &&
+      this.launchPool.totalPoolReward && this.launchPool.totalPoolReward != 0 &&
+      this.launchPool.totalPoolStacked && this.launchPool.totalPoolStacked != 0 &&
       this.launchPool.earnedAsset &&
-      this.launchPool.earnedAsset.USDValue &&
+      this.launchPool.earnedAsset.USDValue && 
       this.launchPool.stackedAsset &&
-      this.launchPool.earnedAsset.USDValue
+      this.launchPool.earnedAsset.USDValue && this.launchPool.stackedAsset.USDValue != 0
     ) {
+
+      if (this.launchPool.earnedAsset.name == 'UNFI')
+        console.log('Launchpool : ', this.launchPool);
+
       var tokenEarnPerStackedAsset = this.launchPool.totalPoolReward / this.launchPool.totalPoolStacked;
       this.launchPool.ROI = tokenEarnPerStackedAsset * this.launchPool.earnedAsset.USDValue * this._investValue / this.launchPool.stackedAsset.USDValue;
     }
