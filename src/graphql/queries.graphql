@@ -1,10 +1,6 @@
 # this is an auto generated file. This will be overwritten
-query GetAsset($name: String) {
-  getAsset(name: $name) {
-    name
-    USDValue
-    imageUrl
-  }
+query GetAssetUsdtValue($name: String) {
+  getAssetUSDTValue(name: $name)
 }
 query ListAssets {
   listAssets {

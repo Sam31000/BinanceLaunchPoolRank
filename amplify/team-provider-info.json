@@ -1,47 +1,53 @@
 {
-  "dev": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-blpr-dev-170836-authRole",
-      "UnauthRoleArn": "arn:aws:iam::180516345724:role/amplify-blpr-dev-170836-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::180516345724:role/amplify-blpr-dev-170836-authRole",
-      "Region": "eu-west-2",
-      "DeploymentBucketName": "amplify-blpr-dev-170836-deployment",
-      "UnauthRoleName": "amplify-blpr-dev-170836-unauthRole",
-      "StackName": "amplify-blpr-dev-170836",
-      "StackId": "arn:aws:cloudformation:eu-west-2:180516345724:stack/amplify-blpr-dev-170836/747210f0-46cb-11eb-8a3f-024da1482c76",
-      "AmplifyAppId": "d35g55g14e3o5a"
-    },
-    "nonCFNdata": {
-      "function": {
-        "LaunchPoolLayer": {
-          "layerVersionMap": {
-            "1": {
-              "permissions": [
-                {
-                  "type": "private"
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-blpr-dev-170836-authRole",
+            "UnauthRoleArn": "arn:aws:iam::180516345724:role/amplify-blpr-dev-170836-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::180516345724:role/amplify-blpr-dev-170836-authRole",
+            "Region": "eu-west-2",
+            "DeploymentBucketName": "amplify-blpr-dev-170836-deployment",
+            "UnauthRoleName": "amplify-blpr-dev-170836-unauthRole",
+            "StackName": "amplify-blpr-dev-170836",
+            "StackId": "arn:aws:cloudformation:eu-west-2:180516345724:stack/amplify-blpr-dev-170836/747210f0-46cb-11eb-8a3f-024da1482c76",
+            "AmplifyAppId": "d35g55g14e3o5a"
+        },
+        "nonCFNdata": {
+            "function": {
+                "LaunchPoolLayer": {
+                    "layerVersionMap": {
+                        "1": {
+                            "permissions": [
+                                {
+                                    "type": "private"
+                                }
+                            ],
+                            "hash": "F428edLRMfp91FcFlTsdr1Mom8BnwVkaOK/WYwILo+o="
+                        },
+                        "2": {
+                            "permissions": [
+                                {
+                                    "type": "private"
+                                }
+                            ],
+                            "hash": "EgB8gsZtlUWIG0ObBUfRBLpX76FFgOHLXV957kRjk70="
+                        }
+                    }
                 }
-              ],
-              "hash": "F428edLRMfp91FcFlTsdr1Mom8BnwVkaOK/WYwILo+o="
-            },
-            "2": {
-              "permissions": [
-                {
-                  "type": "private"
-                }
-              ],
-              "hash": "EgB8gsZtlUWIG0ObBUfRBLpX76FFgOHLXV957kRjk70="
             }
-          }
+        },
+        "categories": {
+            "function": {
+                "LaunchPoolLayer": {
+                    "deploymentBucketName": "amplify-blpr-dev-170836-deployment",
+                    "s3Key": "amplify-builds/LaunchPoolLayer-build.zip"
+                }
+            },
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "d35g55g14e3o5a",
+                    "type": "manual"
+                }
+            }
         }
-      }
-    },
-    "categories": {
-      "function": {
-        "LaunchPoolLayer": {
-          "deploymentBucketName": "amplify-blpr-dev-170836-deployment",
-          "s3Key": "amplify-builds/LaunchPoolLayer-build.zip"
-        }
-      }
     }
-  }
 }

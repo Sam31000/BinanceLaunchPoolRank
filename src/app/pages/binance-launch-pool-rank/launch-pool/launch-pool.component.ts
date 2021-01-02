@@ -25,9 +25,11 @@ export class LaunchPoolComponent implements OnInit {
   private _investValue: number;
 
   constructor(private launchPoolService: LaunchPoolService) {
+    setInterval(() => { this.refreshROI(); }, 500);
   }
 
   ngOnInit() {
+
     var pair = this.launchPool.url.split('/').pop().split("_");
 
     this.launchPool.stackedAsset = {
@@ -63,6 +65,8 @@ export class LaunchPoolComponent implements OnInit {
       var tokenEarnPerStackedAsset = this.launchPool.totalPoolReward / this.launchPool.totalPoolStacked;
       this.launchPool.ROI = tokenEarnPerStackedAsset * this.launchPool.earnedAsset.USDValue * this._investValue / this.launchPool.stackedAsset.USDValue;
     }
+    else
+      this.launchPool.ROI = 0;
   }
 
 

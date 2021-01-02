@@ -4,3 +4,4 @@ node_modules
 src/aws-exports.js
 amplify/#current-cloud-backend/
 amplify/mock-data
+www/

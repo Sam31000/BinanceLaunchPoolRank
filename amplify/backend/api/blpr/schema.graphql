@@ -13,7 +13,7 @@ type LaunchPool {
 }
 
 type Query {
-	getAsset(name: String): Asset
+	getAssetUSDTValue(name: String): Float
 	listAssets: [Asset]
 	listLaunchPools: [LaunchPool]
 }

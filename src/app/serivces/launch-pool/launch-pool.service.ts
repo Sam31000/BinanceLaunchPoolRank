@@ -53,15 +53,16 @@ export class LaunchPoolService {
 
   //Get Assets value using http request
   getAssetUSDValue(assetSymbol: string): Promise<number> {
-    return new Promise(function (success, failure) {
+    return new Promise((success, failure) => {
       try {
-        success(Math.floor(Math.random() * Math.floor(100))); //TODO : http request
+        this.apiService.GetAssetUsdtValue(assetSymbol).then((result) => { success(result) });
       } catch (err) {
         failure(err);
       }
     });
   }
 
+  //Retreive stacked and reward pools
   getObservableLaunchPoolDetail(symbolEarned, symbolStacked) {
     return new Observable((observer) => {
 
@@ -86,10 +87,7 @@ export class LaunchPoolService {
   getLaunchPoolUrl(): Promise<any> {
     return new Promise((success, failure) => {
       try {
-
         this.apiService.ListLaunchPools().then((result) => { success(result) });
-
-        //success(launchPoolList);
       } catch (error) {
         console.error("Error while retriving LaunchPoolList : ", error);
         failure("Error detected");

@@ -78,7 +78,7 @@
           "DynamoDBBillingMode": "PAY_PER_REQUEST",
           "DynamoDBEnableServerSideEncryption": false,
           "S3DeploymentBucket": "amplify-blpr-dev-170836-deployment",
-          "S3DeploymentRootKey": "amplify-appsync-files/ad4cee1890cb054ea9336bfcc6fa39a2353de9bc",
+          "S3DeploymentRootKey": "amplify-appsync-files/23d0da8da2e4a2e6aa8afaa7968f2054bd6643ca",
           "env": "dev"
         }
       }
@@ -109,6 +109,17 @@
           "layerVersion": 2,
           "deploymentBucketName": "amplify-blpr-dev-170836-deployment",
           "s3Key": "amplify-builds/LaunchPoolLayer-build.zip",
+          "env": "dev"
+        }
+      }
+    },
+    "hostingamplifyhosting": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/amplify-blpr-dev-170836-deployment/amplify-cfn-templates/hosting/amplifyhosting-template.json",
+        "Parameters": {
+          "appId": "d35g55g14e3o5a",
+          "type": "manual",
           "env": "dev"
         }
       }

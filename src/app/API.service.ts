@@ -5,13 +5,6 @@ import { Injectable } from "@angular/core";
 import API, { graphqlOperation, GraphQLResult } from "@aws-amplify/api-graphql";
 import { Observable } from "zen-observable-ts";
 
-export type GetAssetQuery = {
-  __typename: "Asset";
-  name: string | null;
-  USDValue: string | null;
-  imageUrl: string | null;
-};
-
 export type ListAssetsQuery = {
   __typename: "Asset";
   name: string | null;
@@ -42,14 +35,9 @@ export type ListLaunchPoolsQuery = {
   providedIn: "root"
 })
 export class APIService {
-  async GetAsset(name?: string): Promise<GetAssetQuery> {
-    const statement = `query GetAsset($name: String) {
-        getAsset(name: $name) {
-          __typename
-          name
-          USDValue
-          imageUrl
-        }
+  async GetAssetUsdtValue(name?: string): Promise<number | null> {
+    const statement = `query GetAssetUsdtValue($name: String) {
+        getAssetUSDTValue(name: $name)
       }`;
     const gqlAPIServiceArguments: any = {};
     if (name) {
@@ -58,7 +46,7 @@ export class APIService {
     const response = (await API.graphql(
       graphqlOperation(statement, gqlAPIServiceArguments)
     )) as any;
-    return <GetAssetQuery>response.data.getAsset;
+    return <number | null>response.data.getAssetUSDTValue;
   }
   async ListAssets(): Promise<Array<ListAssetsQuery>> {
     const statement = `query ListAssets {

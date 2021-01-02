@@ -12,6 +12,9 @@ exports.handler = async (event, context, callback) => {
         case "listLaunchPools":
             callback(null, await listLaunchPools());
             break;
+        case "getAssetUSDTValue":
+            callback(null, await getAssetsUSDTValue(event.arguments.name));
+            break;
         default:
             callback("Unknown field, unable to resolve " + event.field, null);
             break;
@@ -70,22 +73,20 @@ exports.handler = async (event, context, callback) => {
         })
     }
 
-    async function getAssetsUSDTValue(LPList) {
-        var assetsUSDTValues = [];
-
-        for (var i = 0, len = LPList.length; i < len; i++) {
-            if (assetsUSDTValues[LPList[i].stackedAsset.name] == null)
-                assetsUSDTValues[LPList[i].stackedAsset.name] = await getAssetValue(LPList[i].stackedAsset.name).then((res, err) => { return res });
-
-            LPList[i].stackedAsset.USDValue = assetsUSDTValues[LPList[i].stackedAsset.name];
-
-            if (assetsUSDTValues[LPList[i].earnedAsset.name] == null)
-                assetsUSDTValues[LPList[i].earnedAsset.name] = await getAssetValue(LPList[i].earnedAsset.name).then((res, err) => { return res });
-
-            LPList[i].earnedAsset.USDValue = assetsUSDTValues[LPList[i].earnedAsset.name];
-        }
-
-        return LPList;
+    async function getAssetsUSDTValue(assetSymbol) {
+        
+        return new Promise((success, failure) => {
+            request({
+                method: 'GET',
+                url: API_GETPRICE_URL + assetSymbol + "USDT"
+            }, (err, res, body) => {
+                if (err) {
+                    console.err("Error while retriving %s price : %s", assetSymbol, err);
+                    failure({ err: "Error detected" });
+                }
+                success(JSON.parse(body).price);
+            });
+        });
     }
 
     function getAssetValue(assetSymbol) {
