@@ -56,3 +56,5 @@ ionic serve
 CHIDIAC Sami
 
 ## Licence
+
+MIT ([LICENSE.md](./LICENSE.md))
