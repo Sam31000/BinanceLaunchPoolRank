@@ -46,7 +46,20 @@ export class LaunchPoolComponent implements OnInit {
 
     this.launchPoolService.getObservableLaunchPoolDetail(this.launchPool.stackedAsset.name, this.launchPool.earnedAsset.name).subscribe({
       next: (launchPoolDetail: any) => {
-        this.launchPool.totalPoolReward = launchPoolDetail.data.todayRebateCoins;
+
+        switch (this.launchPool.earnedAsset.name + '_' + this.launchPool.stackedAsset.name) {
+          case 'BTCST_BUSD':
+            this.launchPool.totalPoolReward = 500;
+            break;
+          case 'BTCST_BTC':
+            this.launchPool.totalPoolReward = 1500;
+            break;
+          case 'BTCST_BNB':
+            this.launchPool.totalPoolReward = 3000;
+            break;
+          default:
+            this.launchPool.totalPoolReward = launchPoolDetail.data.todayRebateCoins;
+        }
         this.launchPool.totalPoolStacked = launchPoolDetail.data.totalInvestAmount;
         this.refreshROI();
       }
@@ -59,7 +72,7 @@ export class LaunchPoolComponent implements OnInit {
       this.launchPool.totalPoolReward && this.launchPool.totalPoolReward != 0 &&
       this.launchPool.totalPoolStacked && this.launchPool.totalPoolStacked != 0 &&
       this.launchPool.earnedAsset &&
-      this.launchPool.earnedAsset.USDValue && 
+      this.launchPool.earnedAsset.USDValue &&
       this.launchPool.stackedAsset &&
       this.launchPool.earnedAsset.USDValue && this.launchPool.stackedAsset.USDValue != 0
     ) {
