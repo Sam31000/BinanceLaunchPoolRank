@@ -109,7 +109,7 @@ exports.handler = async (event, context, callback) => {
         for (var i = 0, len = LPList.length; i < len; i++) {
 
             let currentTotalPool = { totalPoolReward: 0, totalPoolStacked: 0 };
-
+            
             currentTotalPool = await getTotalPool(LPList[i]).then((res, err) => { return res; });
 
             LPList[i].totalPoolReward = currentTotalPool.totalPoolReward;
@@ -131,13 +131,12 @@ exports.handler = async (event, context, callback) => {
                 if (err) {
                     console.err("Error while retriving LaunchPoolList : ", err);
                     failure({ err: "Error detected" });
-                }
+                } 
+                    result.totalPoolReward = JSON.parse(body).data.todayRebateCoins;
+                    result.totalPoolStacked = JSON.parse(body).data.totalInvestAmount;
+                    success(result);
 
-                result.totalPoolReward = JSON.parse(body).data.todayRebateCoins;
-                result.totalPoolStacked = JSON.parse(body).data.totalInvestAmount;
-
-                success(result);
-
+                
             });
         });
     }

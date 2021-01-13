@@ -46,20 +46,7 @@ export class LaunchPoolComponent implements OnInit {
 
     this.launchPoolService.getObservableLaunchPoolDetail(this.launchPool.stackedAsset.name, this.launchPool.earnedAsset.name).subscribe({
       next: (launchPoolDetail: any) => {
-
-        switch (this.launchPool.earnedAsset.name + '_' + this.launchPool.stackedAsset.name) {
-          case 'BTCST_BUSD':
-            this.launchPool.totalPoolReward = 500;
-            break;
-          case 'BTCST_BTC':
-            this.launchPool.totalPoolReward = 1500;
-            break;
-          case 'BTCST_BNB':
-            this.launchPool.totalPoolReward = 3000;
-            break;
-          default:
-            this.launchPool.totalPoolReward = launchPoolDetail.data.todayRebateCoins;
-        }
+        this.launchPool.totalPoolReward = launchPoolDetail.data.todayRebateCoins;
         this.launchPool.totalPoolStacked = launchPoolDetail.data.totalInvestAmount;
         this.refreshROI();
       }
