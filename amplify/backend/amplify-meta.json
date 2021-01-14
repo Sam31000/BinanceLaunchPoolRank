@@ -35,7 +35,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-blpr-dev-170836-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apiblpr"
       },
-      "lastPushTimeStamp": "2021-01-07T18:41:32.444Z",
+      "lastPushTimeStamp": "2021-01-13T05:59:01.888Z",
       "lastPushDirHash": "8K+rlbc6AUVgC8BK1jD8kmqVj2Y="
     }
   },
@@ -51,7 +51,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-blpr-dev-170836-deployment/amplify-cfn-templates/function/asset-cloudformation-template.json",
         "logicalId": "functionasset"
       },
-      "lastPushTimeStamp": "2021-01-07T18:41:32.451Z",
+      "lastPushTimeStamp": "2021-01-13T05:59:01.892Z",
       "output": {
         "Region": "eu-west-2",
         "Arn": "arn:aws:lambda:eu-west-2:180516345724:function:asset-dev",
@@ -64,21 +64,21 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda",
-      "lastBuildTimeStamp": "2021-01-02T12:30:58.327Z",
-      "lastPackageTimeStamp": "2021-01-02T12:30:58.363Z",
-      "distZipFilename": "launchPool-55637734363835356875-build.zip",
+      "lastBuildTimeStamp": "2021-01-13T05:57:38.019Z",
+      "lastPackageTimeStamp": "2021-01-13T05:57:38.064Z",
+      "distZipFilename": "launchPool-6544424d444f6866396d-build.zip",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-blpr-dev-170836-deployment/amplify-cfn-templates/function/launchPool-cloudformation-template.json",
         "logicalId": "functionlaunchPool"
       },
-      "lastPushTimeStamp": "2021-01-07T18:41:32.452Z",
+      "lastPushTimeStamp": "2021-01-13T05:59:01.894Z",
       "output": {
         "Region": "eu-west-2",
         "Arn": "arn:aws:lambda:eu-west-2:180516345724:function:launchPool-dev",
         "Name": "launchPool-dev",
         "LambdaExecutionRole": "blprLambdaRole35972ce3-dev"
       },
-      "lastPushDirHash": "x36nCg8Wec6JnlkfNNKGZ0HR/Fg=",
+      "lastPushDirHash": "U7bF9HyzZ+Y+JZnDbYD/wNSi7aQ=",
       "dependsOn": []
     },
     "LaunchPoolLayer": {
@@ -113,7 +113,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-blpr-dev-170836-deployment/amplify-cfn-templates/function/LaunchPoolLayer-awscloudformation-template.json",
         "logicalId": "functionLaunchPoolLayer"
       },
-      "lastPushTimeStamp": "2021-01-07T18:41:32.454Z",
+      "lastPushTimeStamp": "2021-01-13T05:59:01.895Z",
       "output": {
         "Region": "eu-west-2",
         "Arn": "arn:aws:lambda:eu-west-2:180516345724:layer:LaunchPoolLayer-dev:2"
@@ -130,7 +130,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-blpr-dev-170836-deployment/amplify-cfn-templates/hosting/amplifyhosting-template.json",
         "logicalId": "hostingamplifyhosting"
       },
-      "lastPushTimeStamp": "2021-01-07T18:41:32.455Z",
+      "lastPushTimeStamp": "2021-01-13T05:59:01.896Z",
       "output": {},
       "lastPushDirHash": "/+VZ33seFFqAr6wbtptwbINUfSA="
     }

@@ -63,10 +63,6 @@ export class LaunchPoolComponent implements OnInit {
       this.launchPool.stackedAsset &&
       this.launchPool.earnedAsset.USDValue && this.launchPool.stackedAsset.USDValue != 0
     ) {
-
-      if (this.launchPool.earnedAsset.name == 'UNFI')
-        console.log('Launchpool : ', this.launchPool);
-
       var tokenEarnPerStackedAsset = this.launchPool.totalPoolReward / this.launchPool.totalPoolStacked;
       this.launchPool.ROI = tokenEarnPerStackedAsset * this.launchPool.earnedAsset.USDValue * this._investValue / this.launchPool.stackedAsset.USDValue;
     }

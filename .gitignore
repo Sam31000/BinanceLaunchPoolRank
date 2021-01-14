@@ -2,6 +2,6 @@ node_modules
 
 .DS_Store
 src/aws-exports.js
-amplify/#current-cloud-backend/
+amplify/#current-cloud-backend
 amplify/mock-data
 www/

@@ -54,11 +54,12 @@ export class LaunchPoolService {
   //Get Assets value using http request
   getAssetUSDValue(assetSymbol: string): Promise<number> {
     return new Promise((success, failure) => {
-      try {
-        this.apiService.GetAssetUsdtValue(assetSymbol).then((result) => { success(result) });
-      } catch (err) {
-        failure(err);
-      }
+        this.apiService.GetAssetUsdtValue(assetSymbol)
+        .then((result) => { success(result) })
+        .catch((error) => {
+          console.log ("Error getting Asset USD Value : ", error);
+          failure(error);
+        });
     });
   }
 
@@ -69,29 +70,35 @@ export class LaunchPoolService {
       //First call before setting interval
       this.getLaunchPoolHttpGet(symbolEarned, symbolStacked).toPromise().then((result) => {
         observer.next(result);
+      }).catch((error) => {
+        console.log("Error getting launchPool detailed information : ", error);
+        observer.error(error);
       })
 
       setInterval(() => {
         this.getLaunchPoolHttpGet(symbolEarned, symbolStacked).toPromise().then((result) => {
           observer.next(result);
+        }).catch((error) => {
+          console.log("Error getting launchPool detailed information : ", error);
+          observer.error(error);
         })
       }, REFRESH_INTERVALS.LAUNCH_POOL_DETAIL);
     })
   }
 
-  //Perform a HTTP request to Binance to get informations detailed information about launchpool
+  //Perform a HTTP request to Binance to get detailed information about launchpool
   getLaunchPoolHttpGet(symbolEarned, symbolStacked) {
     return this.http.get(URL_LAUNCHPOOL_DETAIL + symbolStacked + "_" + symbolEarned, this.httpOptions);
   }
 
   getLaunchPoolUrl(): Promise<any> {
     return new Promise((success, failure) => {
-      try {
-        this.apiService.ListLaunchPools().then((result) => { success(result) });
-      } catch (error) {
-        console.error("Error while retriving LaunchPoolList : ", error);
-        failure("Error detected");
-      }
+        this.apiService.ListLaunchPools()
+        .then((result) => { success(result) })
+        .catch((error) => { 
+          console.error("Error while retriving launchPool urls : ", error);
+          failure("Error detected");
+        });
     });
   }
 

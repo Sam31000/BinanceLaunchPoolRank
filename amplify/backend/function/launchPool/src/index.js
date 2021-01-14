@@ -26,8 +26,10 @@ exports.handler = async (event, context, callback) => {
 
         //Retreiving launchPoolUrl
         launchPoolList = await parseBinanceLaunchPoolList(launchPoolList).then((res, err) => {
-            if (err)
+            if (err){
+                console.log ("Error getting launchPoolList : ", err)
                 return err;
+            }
             return res;
         });
         return launchPoolList;
