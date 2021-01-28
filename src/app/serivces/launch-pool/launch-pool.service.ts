@@ -6,7 +6,7 @@ import { APIService } from 'src/app/API.service';
 const cheerio = require('cheerio');
 
 const BASE_URL: string = "https://launchpad.binance.com"
-const LAUNCH_POOL_URL: string = BASE_URL + "/en/tab3";
+const LAUNCH_POOL_URL: string = BASE_URL + "/en/viewall/lp";
 const API_GETPRICE_URL: string = "https://api1.binance.com/api/v3/ticker/price?symbol=";
 const URL_LAUNCHPOOL_DETAIL: string = "https://launchpad.binance.com/gateway-api/v1/public/launchpool/project/detail?projectId=";
 

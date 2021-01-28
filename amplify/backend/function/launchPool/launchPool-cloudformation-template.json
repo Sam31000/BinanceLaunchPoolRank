@@ -71,7 +71,7 @@
         "Timeout": "25",
         "Code": {
           "S3Bucket": "amplify-blpr-dev-170836-deployment",
-          "S3Key": "amplify-builds/launchPool-6544424d444f6866396d-build.zip"
+          "S3Key": "amplify-builds/launchPool-42657a2b6c6f4571425a-build.zip"
         }
       }
     },
