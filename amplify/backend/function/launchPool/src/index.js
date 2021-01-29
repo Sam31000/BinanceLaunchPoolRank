@@ -41,7 +41,7 @@ exports.handler = async (event, context, callback) => {
         return new Promise((success, failure) => {
             request({
                 method: 'GET',
-                url: LAUNCH_POOL_URL
+                url: BASE_URL
             }, (err, res, body) => {
 
                 if (err) {
